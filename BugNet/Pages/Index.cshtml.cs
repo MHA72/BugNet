@@ -7,7 +7,8 @@ public class Index : PageModel
 {
     public string Title { get; set; } = "Main";
     
-    public IList<Bug> Bugs { get; set; }
+    public IList<Bug>? Bugs { get; set; }
+    public int UnDoneCount { get; set; }
     public void OnGet()
     {
         ViewData["Title"] = Title;
@@ -17,5 +18,6 @@ public class Index : PageModel
             new() {Id = 2, Name = "Bug 2", Description = "Bug 2 description", IsDone = false},
             new() {Id = 3, Name = "Bug 3", Description = "Bug 3 description", IsDone = true},
         };
+        UnDoneCount = Bugs.Count(bug => bug.IsDone == false);
     }
 }

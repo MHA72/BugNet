@@ -3,6 +3,7 @@
 
 <h1>Welcome to Bugnet</h1>
 
+<p>Undone items: @Model.UnDoneCount</p>
 
 <table class="table">
     <thead>
@@ -14,7 +15,7 @@
     </tr>
     </thead>
     <tbody>
-        @foreach (var bug in Model.Bugs)
+        @foreach (var bug in Model.Bugs!)
         {
             <tr>
                 <td>@bug.Id</td>
@@ -25,6 +26,3 @@
         }
     </tbody>
 </table>
-
-
-
