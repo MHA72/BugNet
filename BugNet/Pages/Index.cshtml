@@ -2,3 +2,29 @@
 @model BugNet.Pages.Index
 
 <h1>Welcome to Bugnet</h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>IsDone</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var bug in Model.Bugs)
+        {
+            <tr>
+                <td>@bug.Id</td>
+                <td>@bug.Name</td>  
+                <td>@bug.Description</td>
+                <td>@bug.IsDone</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
