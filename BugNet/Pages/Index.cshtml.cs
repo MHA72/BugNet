@@ -13,7 +13,7 @@ public class Index(BugDbContext context) : PageModel
     public void OnGet()
     {
         ViewData["Title"] = Title;
-        Bugs= context.Bugs.ToList();
+        Bugs= context.Bugs.Where(bug => !bug.IsDelete).ToList();
         UnDoneCount = Bugs.Count(bug => bug.IsDone == false);
     }
 }

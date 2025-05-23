@@ -18,6 +18,10 @@ public class Create(BugDbContext context) : PageModel
     }
     public IActionResult OnPost()
     {
+        if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Description))
+        {
+            return RedirectToPage("Create");
+        }
         context.Add(new Bug
         {
             Name = Name,
