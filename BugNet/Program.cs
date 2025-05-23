@@ -1,6 +1,15 @@
+using BugNet.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<BugDbContext>(options =>
+{
+    options.UseSqlite("Data Source=BugDB.db");
+    options.LogTo(Console.WriteLine);
+});
 
 var app = builder.Build();
 
