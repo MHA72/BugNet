@@ -5,8 +5,13 @@
 
 <p>Undone items: @Model.UnDoneCount</p>
 
-<a asp-page="./Create" class="btn btn-primary">Create</a>
-
+<a asp-page="./Create" class="btn btn-success">Create</a>
+@if (TempData["Message"] is not null)
+{
+    <div class="alert-success">
+        @TempData["Message"]
+    </div>
+}
 <table class="table">
     <thead>
     <tr>

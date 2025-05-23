@@ -18,8 +18,15 @@ public class Create(BugDbContext context) : PageModel
     }
     public IActionResult OnPost()
     {
-        if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Description))
+        if (string.IsNullOrWhiteSpace(Name))
         {
+            TempData["Name"] = "Name is required";
+            return RedirectToPage("Create");
+        }
+        
+        if (string.IsNullOrWhiteSpace(Description))
+        {
+            TempData["Description"] = "Description is required";  
             return RedirectToPage("Create");
         }
         context.Add(new Bug
@@ -29,6 +36,7 @@ public class Create(BugDbContext context) : PageModel
             IsDone = false
         });
         context.SaveChanges();
+        TempData["Message"] = "New Bug Created";
         return RedirectToPage("Index");
     }
 }
