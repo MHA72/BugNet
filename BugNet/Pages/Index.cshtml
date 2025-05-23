@@ -12,6 +12,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>IsDone</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +23,9 @@
                 <td>@bug.Name</td>  
                 <td>@bug.Description</td>
                 <td>@bug.IsDone</td>
+                <td>
+                    <a asp-page="./EditModel" asp-route-id="@bug.Id" class="btn btn-primary">Edit</a>
+                </td>
             </tr>
         }
     </tbody>
